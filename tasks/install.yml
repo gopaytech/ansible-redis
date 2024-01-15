@@ -63,6 +63,8 @@
 
 - name: move redis_server binary to different name
   shell: mv {{ redis_install_dir }}/bin/redis-server {{ redis_install_dir }}/bin/redis-server-{{ redis_version }}
+  args:
+    creates: "{{ redis_install_dir }}/bin/redis-server-{{ redis_version }}"
 
 - name: create symlink to installed redis
   file:
